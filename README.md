@@ -22,7 +22,7 @@ You'll need ffmpeg installed to run this app. On FreeBSD, you can install it as 
 If you haven't already, configure and active a Python virtual environment.
 
 ```
-> cd wiredrive_interview/
+> cd wiredrive_devtest/
 > sudo -H pip install virtualenv
 > virtualenv venv
 > . venv/bin/activate
