@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    
+    <div class="row">
+      {% for video in data %}
+        {% if video.title %}
+          <div class="col-md-12 col-lg-6">
+          <div class="media">
+            <div class="media-left">
+              <a class="custom-thumbnail" href="{{ video.link }}" target="_blank" style="background: url('{{ video.thumbnail }}') center 45% no-repeat"></a>
+              <a href="{{ video.media_content.0.url }}" class="btn btn-default" role="button">Download</a>
+            </div>
+            <div class="media-body">
+              
+              <h3 class="media-heading"><a href="{{ video.link }}" target="_blank">{{ video.title }}</a></h3>
+              
+              <!-- Nav tabs -->
+              <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active"><a href="#about-{{ loop.index }}" aria-controls="about-{{ loop.index }}" role="tab" data-toggle="tab">About</a></li>
+                <li role="presentation"><a href="#credits-{{ loop.index }}" aria-controls="credits-{{ loop.index }}" role="tab" data-toggle="tab">Credits</a></li>
+                <li role="presentation"><a href="#keywords-{{ loop.index }}" aria-controls="keywords-{{ loop.index }}" role="tab" data-toggle="tab">Keywords</a></li>
+                <li role="presentation"><a href="#media-{{ loop.index }}" aria-controls="media-{{ loop.index }}" role="tab" data-toggle="tab">Media</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active custom-about" id="about-{{ loop.index }}">
+                  <dl class="dl-horizontal">
+                    <dt>Client</dt>
+                    <dd>{{ video.client }}</dd>
+                    <dt>Duration</dt>
+                    <dd>{{ video.duration }}</dd>
+                    <dt>Filename</dt>
+                    <dd>{{ video.summary }}</dd>
+                    <dt>Published</dt>
+                    <dd>{{ video.date }}</dd>
+                  </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane custom-credits" id="credits-{{ loop.index }}">
+                  <dl class="dl-horizontal">
+                    {% for credit in video.credits %}
+                      <dt>{{ credit.role.title() }}</dt>
+                      <dd>{{ credit.content.title() }}</dd>
+                    {% endfor %}
+                  </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane custom-keywords" id="keywords-{{ loop.index }}">
+                  <ul class="tags">
+                    {% for keyword in video.media_keywords.split(',')|sort %}
+                      <li><custom-tag>{{ keyword }}</custom-tag></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane custom-media" id="media-{{ loop.index }}">
+                  <dl class="dl-horizontal">
+                    <dt>Bitrate</dt>
+                    <dd>{{ video.bitrate }}</dd>
+                    <dt>Codec</dt>
+                    <dd>{{ video.codec }}</dd>
+                    <dt>Dimensions</dt>
+                    <dd>{{ video.media_content.0.width }} x {{ video.media_content.0.height }}</dd>
+                    <dt>Size</dt>
+                    <dd>{{ video.size }}</dd>
+                    <dt>Type</dt>
+                    <dd>{{ video.summary.split('.').1 }}</dd>
+                  </dl>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+  </div>
+  
+  <hr />
+  
+  <div class="container footer">
+    <span class="custom-footer ng-binding ng-scope">&copy; 2015 - Byron Dover</span>
+  </div>
+  <!-- /.container -->
+{% endblock %}
