@@ -1,4 +1,4 @@
-# wiredrive_interview
+# wiredrive_devtest
 Wiredrive Developer Test submission, along with a couple of code samples.
 
 ## Installation
@@ -44,4 +44,4 @@ Once you have a virtual environment configured and activated, simply launch app.
  * Restarting with stat
 ```
 
-You should now be able to view this app by navigating to the appropriate hostname and port your browser. If you're running this locally, this link should launch the app: [http://localhost:5000](http://localhost:5000/).
+You should now be able to view this app by navigating to the appropriate hostname and port your browser. If you're running app.py locally, this link should launch the app: [http://localhost:5000](http://localhost:5000/).
