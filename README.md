@@ -14,12 +14,12 @@ Wiredrive Developer Test submission, along with a couple of code samples.
 You'll need ffmpeg installed to run this app. On FreeBSD, you can install it as follows.
 
 ```
-> sudo pkg install ffmpeg
+> sudo pkg install pkgconf ffmpeg
 ```
 
 ### Setup Virtual Environment
 
-If you haven't already, configure and active a Python virtual environment.
+If you haven't already, configure and active a Python virtual environment. Requires ISO 8601 compliant shell (bash, zsh, etc.).
 
 ```
 > cd wiredrive_devtest/
