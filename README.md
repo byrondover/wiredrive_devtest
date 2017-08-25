@@ -19,7 +19,7 @@ You'll need ffmpeg installed to run this app. On FreeBSD, you can install it as 
 
 ### Setup Virtual Environment
 
-If you haven't already, configure and active a Python virtual environment. Requires ISO 8601 compliant shell (bash, zsh, etc.).
+If you haven't already, configure and activate a Python virtual environment. Requires ISO 8601 compliant shell (e.g. bash, zsh, etc.).
 
 ```
 > cd wiredrive_devtest/
